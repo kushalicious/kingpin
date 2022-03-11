@@ -1,0 +1,21 @@
+we need to know the Prereques.
+
+like, The Technology, Souce Repository and the agent
+
+In our project we used Azure-Git-Repos as Source Repository, Asp.Net and Nodejs as Technology and Azure Hosted Agent as an Agent. 
+
+CI/CD is nothing but what developers do in their local, we automate that in Azure DevOps Pipeline.
+
+coming to CI -->
+CI is nothing but generating an Artifact... For that, we have to configure some stages and tasks.
+In These tasks, we configure Package-Managers like Nuget for Asp.Net, NPM for nodejs.
+
+At the end of the CI Pipeline, we need to configure onemore task called Build-Publish-Artifact, Where we define Artifact-Staging-Directory to store the Artifact.
+
+And .....When ever developers push the code to remote-repo,  The Agent runs on job and all the dependences will be installed as per Packages.config, and Package.json and code will be compiled and Artifact will be generated and placed in Staging-Directory.
+
+Since we enable CI trigger this build happens automatically.
+
+In release part, we define where to deploy the code like Webapps or VMs.
+
+In release, we need to configure the service-connection and service-principle to authenticate azure devops with azure portal.
